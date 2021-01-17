@@ -38,7 +38,3 @@ def ham5(url):
     ham4(h)
 
 
-s = [
-    'https://vietnamnet.vn/vn/thoi-su/an-toan-giao-thong/xe-limousine-gay-tai-nan-tham-khoc-do-phong-nhanh-vuot-au-699177.html']
-for s_i in s:
-    ham5('https://vietnamnet.vn/vn/thoi-su/an-toan-giao-thong/xe-limousine-gay-tai-nan-tham-khoc-do-phong-nhanh-vuot-au-699177.html')

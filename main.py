@@ -1,16 +1,24 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import requests
+from bs4 import BeautifulSoup
+import quet_url
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    waiting_line = set()
+    history = set()
+    url = input('Nhập link khởi đầu: ')
+    url = quet_url.sua_url_goc(url)
+    url_tim_duoc = quet_url.tim_url_lien_quan(url)
+    waiting_line = waiting_line | url_tim_duoc
+    history = history | url_tim_duoc
+    while (waiting_line != set()) and (len(history) <= 1000):
+        url = waiting_line.pop()
+        url_tim_duoc = quet_url.tim_url_lien_quan(url)
+        waiting_line = waiting_line | (url_tim_duoc - history)
+        history = history | url_tim_duoc
+    print(len(waiting_line))
+    print(len(history))
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
