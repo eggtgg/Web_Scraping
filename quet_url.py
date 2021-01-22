@@ -36,10 +36,10 @@ def tim_url_lien_quan(url, url_goc):
 
 # Tăng số lượng URL trong tập hợp lên
 # Kết quả trả về tập hợp các URL có số phần tử đạt yêu cầu
-def them_va_duyet_hang_cho(hang_cho):
+def them_va_duyet_hang_cho(hang_cho, url_goc):
     history = hang_cho
     while (len(hang_cho) > 0) and (len(history) <500):
-        url_tim_duoc = tim_url_lien_quan(hang_cho.pop(),'https://vietnamnet.vn')
+        url_tim_duoc = tim_url_lien_quan(hang_cho.pop(), url_goc)
         hang_cho = hang_cho | (url_tim_duoc - history)
         history = history | url_tim_duoc
     return history
@@ -54,4 +54,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

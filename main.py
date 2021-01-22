@@ -7,14 +7,10 @@ def main():
     url_goc = quet_url.sua_url_goc(url_goc)
     url_tim_duoc = quet_url.tim_url_lien_quan(url_goc, url_goc)
     waiting_line = url_tim_duoc
-    history = quet_url.them_va_duyet_hang_cho(waiting_line)
+    history = quet_url.them_va_duyet_hang_cho(waiting_line, url_goc)
 
-    luu_url.tao_thu_muc('html_file_viet_nam_net_3')
-
-    for (stt, url_con) in enumerate(history):
-        luu_url.luu_file(url_con, stt)
-        print(f'{stt} {url_con}')
-
+    luu_url.tao_thu_muc('vnexpress')
+    luu_url.luu_tat_ca_file(history)
 
 
 if __name__ == '__main__':
