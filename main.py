@@ -9,7 +9,7 @@ def main():
     waiting_line = url_tim_duoc
     history = quet_url.them_va_duyet_hang_cho(waiting_line, url_goc)
 
-    luu_url.tao_thu_muc('vnexpress')
+    luu_url.tao_thu_muc('bong_da_2')
     luu_url.luu_tat_ca_file(history)
 
 
