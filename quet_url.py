@@ -39,9 +39,9 @@ def tim_url_lien_quan(url, url_goc):
 # Tăng số lượng URL trong tập hợp lên
 # Cần truyền vào một set gồm các phần tử cần được duyệt, và URL xuất phát
 # Kết quả trả về tập hợp các URL có số phần tử đạt yêu cầu
-def them_va_duyet_hang_cho(hang_cho, url_goc):
+def them_va_duyet_hang_cho(hang_cho, url_goc, so_luong_trang):
     history = hang_cho
-    while (len(hang_cho) > 0) and (len(history) < 500):
+    while (len(hang_cho) > 0) and (len(history) < so_luong_trang):
         url_tim_duoc = tim_url_lien_quan(hang_cho.pop(), url_goc)
         hang_cho = hang_cho | (url_tim_duoc - history)
         history = history | url_tim_duoc

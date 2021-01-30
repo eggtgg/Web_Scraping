@@ -21,8 +21,10 @@ def luu_file(url, stt):
 
 # Hàm lưu tất cả các url đã tim được
 # Truyền vào một List, set, tuples,... các URL hợp lệ
-def luu_tat_ca_file(history):
+def luu_tat_ca_file(history, so_luong_trang):
     for (stt, url_con) in enumerate(history):
+        if stt >= so_luong_trang:
+            break
         luu_file(url_con, stt)
         print(f'{stt} {url_con}')
 
